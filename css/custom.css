@@ -1,0 +1,9 @@
+/*
+ * Custom CSS styles.
+ * dom.weldon@decisionLab.co.uk
+ */
+
+pre > code.small_code {
+  font-size: 12px;
+  line-height: 1.5em;
+}

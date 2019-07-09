@@ -1,0 +1,18 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/python
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+      - run: echo "$CIRCLE_BRANCH/$CIRCLE_SHA1" > version.txt
+      - run: sudo pip install awscli
+      - run: aws s3 sync ./js s3://domweldon-europython-2019-dash/js
+      - run: aws s3 sync ./css s3://domweldon-europython-2019-dash/css
+      - run: aws s3 sync ./plugin s3://domweldon-europython-2019-dash/plugin
+      - run: aws s3 sync ./img s3://domweldon-europython-2019-dash/img
+      - run: aws s3 sync ./lib s3://domweldon-europython-2019-dash/lib
+      - run: aws s3 cp ./index.html s3://domweldon-europython-2019-dash/
