@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Talk Slides</title>
+		<title>Interactive Data Visualization Web Apps with no Javascript: Dom Weldon @ EuroPython 2019 Basel</title>
 
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
@@ -33,7 +33,20 @@
 					<p>Dom Weldon</p>
 					<p><em>Senior Software Engineer, <a href="http://www.decisionlab.co.uk/">decisionLab</a></em></p>
 					<p><a href="https://twitter.com/DomWeldon" target="_blank">@DomWeldon</a></p>
-					<p>These slides: <a href="http://bit.ly/ep2019dash" target="-_blank">http://bit.ly/ep2019dash</a></p>
+				</section>
+				<section>
+					<h2>
+						Slides
+					</h2>
+					<p>
+						<a href="http://bit.ly/ep2019dash" target="-_blank">http://bit.ly/ep2019dash</a>
+					</p>
+					<h2>
+						Code Examples
+					</h2>
+					<p>
+						<a target="_blank" href="http://bit.ly/ep2019dashgithub">http://bit.ly/ep2019dashgithub</a>
+					</p>
 				</section>
 				<section>
 					<h2>
@@ -46,7 +59,7 @@
 					</h4>
 					<ul>
 						<li>
-							<span class="fragment highlight-current-red">Basic introduction</span> to dash and how to use it. How is it different from React?
+							<span class="fragment highlight-current-red">Basic introduction</span> to Dash, how it works and what you can do with it.
 						</li>
 						<li>
 							Discuss <span class="fragment highlight-current-green">what we've learned</span> at decisionLab from using Dash across teams
@@ -54,15 +67,13 @@
 						<li>
 							<span class="fragment highlight-current-green">Some good practice<span> we've learned.
 						</li>
-						<li class="fragment">(but you can be the judge of if they're good!)</li>
 						<li class="fragment">
 							Looking for <span class="fragment highlight-current-green">feedback and questions</span> at the end!
 						</li>
 						<li class="fragment">
-							I'll give a <span class="fragment highlight-current-blue">URL for the slides on github by the end of the day</span>, and on Twitter.
+							Slides Link: <a target="_blank" href="http://bit.ly/ep2019dash">http://bit.ly/ep2019dash</a>
 						</li>
 						<li class="fragment">
-							Slides Link: <a target="_blank" href="http://bit.ly/ep2019dash">http://bit.ly/ep2019dash</a>
 							Github Link: <a target="_blank" href="http://bit.ly/ep2019dashgithub">http://bit.ly/ep2019dashgithub</a>
 						</li>
 					</ul>
@@ -110,7 +121,7 @@
 				</section>
 				<section>
 					<h2>
-						👩‍🔬👨‍🔬 & 👷‍♀️👷‍♂️
+						Two cultures? 👩‍🔬👨‍🔬 & 👷‍♀️👷‍♂️
 					</h2>
 					<p>
 						<span class="fragment highlight-current-green">Python Data and Python Software</span>: different tools and approaches.
@@ -123,6 +134,17 @@
 					</p>
 				</section>
 				<section>
+					<p>
+						If I'm building a very basic proof-of-concept (PoC) app for a client, <span class="fragment highlight-current-blue">I want my data scientist 👩‍ to take the lead and rapidly prototype a web application</span>.
+					</p>
+					<p>
+						Their <span class="fragment highlight-current-blue">background probably isn't in web development<span>.
+					</p>
+					<p class="fragment">
+						I 👷‍♂️ want to <span class="fragment highlight-current-blue">facilitate their work and deploy</span> the tools we build.
+					</p>
+				</section>
+				<section>
 					<h2>In a tweet...</h2>
 				</section>
 				<section>
@@ -132,8 +154,8 @@
 				<section>
 					<p>...and so we found Dash.</p>
 					<!-- <p class="fragment">(or rather, one of our data scientists found it!)</p> -->
-					<p class="fragment">Open source, with paid consultancy options.</p>
-					<p class="fragment">Project describes itself as experimental, although it recently (June) hit version 1.0</p>
+					<p class="fragment"><span class="fragment highlight-current-blue">Open source</span>, with paid consultancy options.</p>
+					<p class="fragment">Project describes itself as experimental, although it <span class="fragment highlight-current-green">recently (June) hit version 1.0</span></p>
 				</section>
 				<section data-background-iframe="https://plot.ly/products/dash/">
 					<!-- I know right, it's crazy you can have a webpage as a slide? -->
@@ -181,7 +203,7 @@ $ pip install dash
 </pre></code>
 				</section>
 				<section>
-					<pre><code class="small_code">
+					<pre><code>
 """Hello world example."""
 import dash
 import dash_html_components as html
@@ -202,6 +224,9 @@ $ virtualenv -p python3 venv  # or whatever floats your boat
 $ pip install -r requirements.txt
 $ python app00.py
 </pre></code>
+				</section>
+				<section>
+					<h3><a href="http://localhost:8049" target="_blank">See it live app00.py</a></h3>
 				</section>
 				<section>
 					<h4>
@@ -239,31 +264,31 @@ $ python app00.py
 					</section>
 					<section>
 						<h4>
-							3 DOM (Document Object Model) Nodes:
+							3 DOM <span class="fragment highlight-current-green">(Document Object Model)</span> Nodes:
 						</h4>
 						<ul>
 							<li>
-								P
+								<span class="fragment highlight-current-green">P</span></p>
 								<ul>
 									<li>
-										Span#helloName
+										<span class="fragment highlight-current-green">Span#helloName</span>
 									</li>
 								</ul>
 							</li>
 							<li>
-								Input#helloInput
+								<span class="fragment highlight-current-green">Input#helloInput</span>
 							</li>
 						</ul>
 					</section>
 					<section>
 						<p>
-							We need a script that sets the <span class="fragment highlight-current-blue">innerHTML of Span#helloName</span> to <span class="fragment highlight-current-blue">value of Input#helloInput</span>, and <span class="fragment highlight-current-green">monitor it for changes<span>.
+							We need a script that sets the <span class="fragment highlight-current-blue">innerHTML of Span#helloName</span> to <span class="fragment highlight-current-blue">value of Input#helloInput</span>, and <span class="fragment highlight-current-green">monitors it for changes<span>.
 						</p>
 						<p>
 							<span class="fragment highlight-current-blue">Javacript allows us to manipulate the DOM in the browser</span> to do this.
 						</p>
 						<p>
-							<span class="fragment highlight-current-green">React let's us do this declaratively<span>. Rather than write our own script, we declare the value of something and how it changes.
+							<span class="fragment highlight-current-green">React lets us do this declaratively<span>. Rather than write our own script, we declare the value of something and how it changes.
 						</p>
 					</section>
 					<section>
@@ -350,6 +375,9 @@ $ python app00.py
 					<pre><code>
 	$ python app01.py
 		</pre></code>
+				</section>
+				<section>
+					<h3><a href="http://localhost:8051" target="_blank">See it live app01.py</a></h3>
 				</section>
 			</section>
 
@@ -453,6 +481,9 @@ def provide_passengers(sex: str) -> Iterable[Mapping]:
     return df[df.Sex == sex].to_dict("rows")
 </code></pre>
 				</section>
+				<section>
+					<h3><a href="http://localhost:8052" target="_blank">See it live app03.py</a></h3>
+				</section>
 			</section>
 
 			<!-- Displaying Graphs -->
@@ -494,6 +525,9 @@ app.layout = html.Div(
 	        ),
 	    ]
 	)</code></pre>
+				</section>
+				<section>
+					<h3><a href="http://localhost:8053" target="_blank">See it live app03a.py</a></h3>
 				</section>
 			</section>
 
@@ -559,6 +593,9 @@ def add_task(
 							State <span class="fragment highlight-current-blue">provides the value of another DOM element</span>, but <span class="fragment highlight-current-blue">does not cause the callback to be fired whenever that value changes</span>.
 						</li>
 					</ul>
+				</section>
+				<section>
+					<h3><a href="http://localhost:8054" target="_blank">See it live app04.py</a></h3>
 				</section>
 			</section>
 
@@ -627,7 +664,7 @@ def add_task(
 					<p class="fragment">
 						Result: <span class="fragment highlight-current-red">2,000 line single-file</span> dash apps.
 					</p>
-					<p>
+					<p class="fragment">
 						This may seem like <span class="fragment highlight-current-blue">very basic coding advice</span> but it's important!
 					</p>
 				</section>
@@ -812,6 +849,10 @@ def _not_found() -> html.Div:
 				<section>
 					<pre><code>
 $ python -m app06</code></pre>
+				</section>
+
+				<section>
+					<h3><a href="http://localhost:8056" target="_blank">See it live app06</a></h3>
 				</section>
 			</section>
 
