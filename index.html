@@ -431,7 +431,7 @@ $ python app00.py
 				</section>
 				<section>
 					<h3>
-						<a href="https://github.com/DomWeldon/PyConLt2019DashExamples/blob/master/app03.py" target="_blank">Full Code Example</a>
+						<a href="https://github.com/DomWeldon/EuroPython2019DashExamples/blob/master/app03.py" target="_blank">Full Code Example</a>
 					</h3>
 				</section>
 				<section>
@@ -496,35 +496,35 @@ def provide_passengers(sex: str) -> Iterable[Mapping]:
 						Full support for a rich suite of graphing functions.
 					</p>
 					<p>
-						<a href="">Full code example</a>
+						<a href="https://github.com/DomWeldon/EuroPython2019DashExamples/blob/master/app03a.py" target="_blank">Full code example</a>
 					</p>
 				</section>
 				<section>
 					<pre><code class="small_code">
 app.layout = html.Div(
-	    children=[
-	        html.H1("Titanic Names"),
-	        dcc.Graph(
-	            id="example-graph",
-	            figure={
-	                "data": [
-	                    {
-	                        "x": letters,
-	                        "y": freq,
-	                        "type": "bar",
-	                        "name": "Titanic Passengers By First Name",
-	                    }
-	                ],
-	                "layout": {
-	                    "title": (
-	                        "Number of Passengers on the Titanic By First "
-	                        "Letter of First Name"
-	                    )
-	                },
-	            },
-	        ),
-	    ]
-	)</code></pre>
+	  children=[
+	      html.H1("Titanic Names"),
+	      dcc.Graph(
+	          id="example-graph",
+	          figure={
+	              "data": [
+	                  {
+	                      "x": letters,
+	                      "y": freq,
+	                      "type": "bar",
+	                      "name": "Titanic Passengers By First Name",
+	                  }
+	              ],
+	              "layout": {
+	                  "title": (
+	                      "Number of Passengers on the Titanic By First "
+	                      "Letter of First Name"
+	                  )
+	              },
+	          },
+	      ),
+	  ]
+)</code></pre>
 				</section>
 				<section>
 					<h3><a href="http://localhost:8053" target="_blank">See it live app03a.py</a></h3>
