@@ -29,7 +29,7 @@ module "s3_user" {
   source       = "git::https://github.com/cloudposse/terraform-aws-iam-s3-user.git?ref=master"
   namespace    = "dom_talks"
   stage        = "prod"
-  name         = "dom_talks_europython_2019"
+  name         = "dom_talks_pyconuk_2019"
   s3_actions   = ["s3:*"]
   s3_resources = ["arn:aws:s3:::${var.bucket_name}/*"]
 }

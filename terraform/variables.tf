@@ -1,3 +1,3 @@
 variable "bucket_name" {
-  default = "domweldon-europython-2019-dash"
+  default = "domweldon-pyconuk-2019-dash"
 }
