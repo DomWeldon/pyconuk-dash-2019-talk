@@ -1,10 +1,12 @@
-# EuroPython 2019 🇨🇭
+# PyCon UK 2019 🏴󠁧󠁢󠁷󠁬󠁳󠁿🇪🇺
 
-_Wednesday 10th July 2019, 14.00, Singapore Room, Congress Center Basel._
+_Sunday 15 September, 12.00 Room D._
 
 ## Dash: INTERACTIVE DATA VISUALIZATION WEB APPS WITH NO JAVASCRIPT
 
-The github repository with the relevant code examples for this talk can be found here: [http://bit.ly/ep2019dashgithub](http://bit.ly/ep2019dashgithub).
+The github repository with the relevant code examples for this talk can be found here: [https://github.com/DomWeldon/pyconuk-dash-2019-examples](https://github.com/DomWeldon/pyconuk-dash-2019-examples).
+
+These slides are visible at [http://domweldon-pyconuk-2019-dash.s3.eu-west-2.amazonaws.com/index.html](http://domweldon-pyconuk-2019-dash.s3.eu-west-2.amazonaws.com/index.html)
 
 ## Contact Dom
 
