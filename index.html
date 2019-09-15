@@ -526,8 +526,9 @@ app.layout = html.Div(
 			<!-- Creating Interactive Graphs Interactive - To Do List -->
 			<section>
 				<section>
-					<h2>Making Interactive Tools</h2>
-					<h4>Example: basic To-Do list <span class="fragment highlight-current-blue">(app04.py)</span> ⬇️</h4>
+					<h2>Making Interactive "Transactional" Tools</h2>
+					<h4>i.e., changing or saving data</h4>
+					<p>Example: basic To-Do list <span class="fragment highlight-current-blue">(app04.py)</span> ⬇️</p>
 				</section>
 				<section>
 					<pre><code class="small_code">
@@ -536,6 +537,7 @@ app.layout = html.Div(
       html.H1("To Do List"),
       html.Ul(
           id="my-ul",
+					# initially empty
           children=list_tasks(data_store["tasks"]),
       ),
       dcc.Input(id="my-input"),
@@ -587,6 +589,7 @@ def add_task(
 					</ul>
 				</section>
 				<section>
+					<h3><a href="https://github.com/DomWeldon/pyconuk-dash-2019-examples/blob/master/app04.py" target="_blank">Full Code Example</a></h3>
 					<h3><a href="http://localhost:8054" target="_blank">See it live app04.py</a></h3>
 				</section>
 			</section>
@@ -678,7 +681,7 @@ def add_task(
 					</ul>
 				</section>
 				<section>
-					<h3>File Structures: app05.py</h3>
+					<h3><a href="https://github.com/DomWeldon/pyconuk-dash-2019-examples/tree/master/app05" target="_blank">File Structures: app05.py</a></h3>
 					<p class="fragment highlight-current-blue">Separation of concerns</p>
 					<ul>
 						<li>
@@ -724,7 +727,7 @@ $ python -m app05
 							At decisionLab, we've <span class="fragment highlight-current-blue">abstracted the Dash interface</span> from our callbacks and layouts.
 						</li>
 						<li>
-							Our App class has a <span class="fragment highlight-current-blue">callback decorator which stores callbacks as they are declared<span>.
+							Our <a href="https://github.com/DomWeldon/pyconuk-dash-2019-examples/blob/master/app06/app.py#L9" target="_blank">App class</a> has a <span class="fragment highlight-current-blue">callback decorator which stores callbacks as they are declared<span>.
 						</li>
 						<li>
 							And a <span class="fragment highlight-current-blue">layout decorator which stores layout (i.e., dash components) alongside a route (a string for the URL path).<span>.
@@ -733,6 +736,14 @@ $ python -m app05
 							Our default template and <span class="fragment highlight-current-blue">factory functions then build a dash app</span> based on the modules declared in our application's entry point.
 						</li>
 					</ul>
+				</section>
+				<section>
+					<h3>
+						Why?
+					</h3>
+					<p>
+						This makes our individual modules discrete, reusable and interchangeable.
+					</p>
 				</section>
 				<section>
 					<pre><code class="small_code">
@@ -748,54 +759,6 @@ app = create_app()
 if __name__ == "__main__":
   app.run_server(debug=True)
 </code></pre>
-				</section>
-				<section>
-					<pre><code class="small_code">
-@App.callback(
-  Output("my-shopping-ul", "children"),
-  [Input("my-shopping-button", "n_clicks")],
-  [State("my-shopping-input", "value")],
-)
-def add_item(
-  n_clicks: int = 0,
-  value: str = None,
-  data_store: Mapping[str, Iterable] = data_store,
-) -> Iterable[html.Li]:
-  """Called when the button is clicked."""
-  if value is not None and len(value.strip()):
-      data_store["items"].append(value.strip())
-
-  return list_items(data_store["items"])</code></pre>
-				</section>
-				<section>
-					<pre><code class="small_code">
-@App.layout(label="Shopping List", path="/shopping")
-def shopping_layout() -> html.Div:
-  return html.Div(
-      children=[
-          html.H1("Shopping List"),
-          html.Ul(
-              id="my-shopping-ul",
-              children=list_items(data_store["items"]),
-          ),
-          dcc.Input(id="my-shopping-input"),
-          html.Button(
-              id="my-shopping-button", n_clicks=0, children="Add Item"
-          ),
-      ]
-  )</code></pre>
-				</section>
-				<section>
-					<h3>
-						Register a single callback/base layout
-					</h3>
-					<pre><code class="small_code">
-def register_template(app: dash.dash.Dash) -> None:
-  """Register the main template of the application, including css."""
-  app.layout = base_layout()
-  app.callback(
-      Output("page_content", "children"), [Input("url", "pathname")]
-  )(App.route)</code></pre>
 				</section>
 				<section>
 					<h3>
@@ -858,8 +821,13 @@ $ python -m app06</code></pre>
 					<p>
 						Once we have a <span class="fragment highlight-current-blue">class to declare and manage the app</span>, and <span class="fragment highlight-current-blue">factory functions to build it</span>, we can start to <span class="fragment highlight-current-blue">integrate other tools to make life for our users easier</span>.
 					</p>
+				</section>
+				<section>
 					<p>
 						The first such tool we've begun to use is <span class="fragment highlight-current-blue">dependency injection</span>, using <a href="https://github.com/google/pinject" target="_blank">google/pinject</a>.
+					</p>
+					<p>
+						For example, this means users can load pandas dataframes, or connect to a database, just by placing a value in a config file and then adding an argument to a callback or layout.
 					</p>
 					<p>
 						If you're interested in implementing this, please <span class="fragment highlight-current-blue">contact me to talk further!</span>
