@@ -36,20 +36,6 @@
 				</section>
 				<section>
 					<h2>
-						Slides
-					</h2>
-					<p>
-						<a href="http://bit.ly/pyconukdash2019slides" target="-_blank">http://bit.ly/pyconukdash2019slides</a>
-					</p>
-					<h2>
-						Code Examples
-					</h2>
-					<p>
-						<a target="_blank" href="http://bit.ly/pyconukdash2019">http://bit.ly/pyconukdash2019</a>
-					</p>
-				</section>
-				<section>
-					<h2>
 						What you can, can't, <span class="fragment highlight-green">should</span> <span class="fragment highlight-red">and probably shouldn't</span> do with plotly/Dash.
 					</h2>
 				</section>
@@ -62,21 +48,26 @@
 							<span class="fragment highlight-current-red">Basic introduction</span> to Dash, how it works and what you can do with it.
 						</li>
 						<li>
-							Discuss <span class="fragment highlight-current-green">what we've learned</span> at decisionLab from using Dash across teams
-						</li>
-						<li>
-							<span class="fragment highlight-current-green">Some good practice<span> we've learned.
+							Discuss <span class="fragment highlight-current-green">what we've learned</span> at decisionLab from using Dash across teams, including some good practice.
 						</li>
 						<li class="fragment">
 							Looking for <span class="fragment highlight-current-green">feedback and questions</span> at the end!
 						</li>
-						<li class="fragment">
-							Slides Link: <a target="_blank" href="http://bit.ly/pyconukdash2019slides">http://bit.ly/pyconukdash2019slides</a>
-						</li>
-						<li class="fragment">
-							Github Link: <a target="_blank" href="http://bit.ly/pyconukdash2019">http://bit.ly/pyconukdash2019</a>
-						</li>
 					</ul>
+				</section>
+				<section>
+					<h2>
+						Slides
+					</h2>
+					<p>
+						<a href="http://bit.ly/pyconukdash2019slides" target="-_blank">http://bit.ly/pyconukdash2019slides</a>
+					</p>
+					<h2>
+						Code Examples
+					</h2>
+					<p>
+						<a target="_blank" href="http://bit.ly/pyconukdash2019">http://bit.ly/pyconukdash2019</a>
+					</p>
 				</section>
 				<section>
 					<section>
@@ -91,7 +82,7 @@
 					</section>
 				</section>
 				<section>
-					<h2>I'm <span class="fragment highlight-current-red">not a Dash expert</span> <span class="fragment highlight-current-red">or involved with/an author on the project</span></h2>
+					<h2>I'm <span class="fragment highlight-current-red">not a Dash expert</span> <span class="fragment highlight-current-red">or an author on the project</span></h2>
 					<p>This is a <span class="fragment highlight-current-green">talk about using Dash</a> at work, I apologise to plotly/Dash if anything is out of date or incorrect - get in touch!</p>
 				</section>
 				<section>
@@ -109,6 +100,14 @@
 						<h1>
 							We're hiring!
 						</h1>
+					</section>
+					<section>
+						<p>
+							Work across defence, infrastructure, intelligence and engineering.
+						</p>
+						<p>
+							We use <span class="fragment highlight-current-green">mathematical models to build tools</span> to help businesses make decisions.
+						</p>
 					</section>
 				</section>
 				<section>
@@ -222,14 +221,14 @@ $ python app00.py
 				</section>
 				<section>
 					<h4>
-						Dash is composed of several modules. Two at work here:
+						Dash is composed of several packages. Two at work here:
 					</h4>
 					<ul>
 						<li>
-							<span class="fragment highlight-current-blue">Dash HTML Components</span> is a module which <span class="fragment highlight-current-green">wraps the core React HTML components</span> (here Div and H1, which come from the HTML specification). We use python to write an HTML style layout.
+							<span class="fragment highlight-current-blue">Dash HTML Components</span> <span class="fragment highlight-current-green">wraps the core React HTML components</span> (here Div and H1, which come from the HTML specification). We use python to write an HTML style layout.
 						</li>
 						<li>
-							<span class="fragment highlight-current-blue">Dash</span> on its own which <span class="fragment highlight-current-green">manages the relationships between the components</span> and <span class="fragment highlight-current-green">serves the layout using Flask</span>.
+							<span class="fragment highlight-current-blue">Dash</span> <span class="fragment highlight-current-green">manages the relationships between the components</span> and <span class="fragment highlight-current-green">serves the layout using Flask</span>.
 						</li>
 					</ul>
 				</section>
@@ -240,7 +239,7 @@ $ python app00.py
 							But... what if I want an <span class="fragment highlight-current-blue">interactive webpage?</span>
 						</h3>
 						<p class="fragment">
-							First: how does this work in JS?
+							First: how does this work in JS / HTML?
 						</p>
 						<p>
 							⬇️
@@ -537,7 +536,6 @@ app.layout = html.Div(
       html.H1("To Do List"),
       html.Ul(
           id="my-ul",
-					# initially empty
           children=list_tasks(data_store["tasks"]),
       ),
       dcc.Input(id="my-input"),
